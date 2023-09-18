@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="styleindex.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Największy sklep internetowy w Polsce">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep internetowy</title>
+
+</head>
+
+
+<body>
+
+    <div class="wrapper">
+
+        <button class="cart"></button>
+        <button class="cart-clear">Clear</button>
+
+        <div class="wrapper-more-box">
+
+            <h4>More</h4>
+
+            <ul class="wrapper-more-ul">
+
+                <li>Male</li>
+                <li>Female</li>
+                <li>Kids</li>
+                <li>Plus size</li>
+                <li>Accesories</li>
+
+            </ul>
+
+
+        </div>
+
+        <div class="arrow-div"></div>
+
+        <div class="wrapper-page-1">
+
+
+
+
+
+
+
+            <h1 class="wrapper-title"></h1>
+
+
+            <div>
+
+                <div class="button-border button-border-1">
+                    <a href="#wrapper-page-2" class="button-a"><button class="wrapper-button-1">See our
+                            products</button></a>
+                </div>
+
+                <div class="button-border button-border-2">
+                    <a href="#wrapper-page-4" class="button-a"><button class="wrapper-button-2">Contact Us</button></a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="wrapper-page-2" id="wrapper-page-2">
+
+            <article class="article-img">
+
+                <img class="js-article-img" src="white.gif">
+
+            </article>
+
+            <article class="article-info-box">
+
+                <div class="article-info">
+
+                    <h2>Price: $<span class="itemCost">55</span></h2>
+                    <p class="itemName">White hoody</p>
+                    <p class="itemInfo">Casual hoody for everyday.<br> High quality cotton.</p>
+
+                </div>
+
+
+                <button class="article-info-button">Add to cart</button>
+
+
+                <div class="article-allItems-section">
+
+                    <div class="article-section-item item1"></div>
+                    <div class="article-section-item item2"></div>
+                    <div class="article-section-item item3"></div>
+                    <div class="article-section-item item4"></div>
+                    <div class="article-section-item item5"></div>
+
+                </div>
+
+
+
+            </article>
+
+
+
+
+        </div>
+
+
+        <!--    Page 3    -->
+
+
+        <div class="wrapper-page-3" id="wrapper-page-3">
+
+            <article class="article-img">
+
+                <img class="js-article-img js-article-img-page3" src="shoes1.gif">
+
+            </article>
+
+            <article class="article-info-box">
+
+                <div class="article-info">
+
+                    <h2>Price: $<span class="itemCost itemCost2">60</span></h2>
+                    <p class="itemName2">White nike</p>
+                    <p class="itemInfo itemInfo2">White nike.</p>
+
+
+                </div>
+
+
+                <button class="article-info-button article-info-button-2">Add to cart</button>
+
+
+                <div class="article-allItems-section">
+
+                    <div class="article-section-item page3-item1"></div>
+                    <div class="article-section-item page3-item2"></div>
+                    <div class="article-section-item page3-item3"></div>
+                    <div class="article-section-item page3-item4"></div>
+                    <div class="article-section-item page3-item5"></div>
+
+                </div>
+
+
+
+            </article>
+
+
+        </div>
+
+        <div class="wrapper-page-4" id="wrapper-page-4">
+
+            <div class="page4-box">
+
+                <div class="h1-background-box">
+
+                    <div class="h1-background">
+                        <h1>Contact us!</h1>
+                    </div>
+
+                </div>
+
+                <form>
+
+                    <input class="input-text" type="text" name="name" pattern=[a-z]* placeholder="Your name">
+
+                    <input class="input-text" type="text" name="surname" pattern=[a-z]* placeholder="Your Surname">
+
+                    <input class="input-text" type="email" name="email" placeholder="E-mail">
+
+
+
+
+                    <span class="sex-box">
+                        <label class="input-radio-text" for="sex">Your sex</label><br>
+                        <input class="input-radio" type="radio" name="sex" value="male"><span
+                            class="input-radio-text">Man</span>
+                        <input class="input-radio" type="radio" name="sex" value="female"><span
+                            class="input-radio-text">Woman</span>
+
+                    </span>
+
+                    <textarea class="textarea" placeholder="Your question"></textarea>
+
+                    <input class="input-submit" type="submit" value="Send">
+
+
+
+
+
+
+                </form>
+
+            </div>
+
+            <div class="page4-background">
+
+                <div></div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <script>
+
+            //  Main Variables
+
+            let wrapper = document.querySelector('.wrapper');
+
+            let wrapperTitle = document.querySelector('.wrapper-title');
+
+            let cart = document.querySelector('.cart');
+
+            let more = document.querySelector('.wrapper-more-box');
+
+            let ul = document.querySelector('.wrapper-more-ul');
+
+            let cartClear = document.querySelector('.cart-clear');
+
+            let itemCost = document.querySelector('.itemCost');
+
+            let itemCost2 = document.querySelector('.itemCost2');
+
+            let costOfProduct = 0;
+
+            let jsArticleImg = document.querySelector('.js-article-img');
+
+            let jsArticleImg2 = document.querySelector('.js-article-img-page3');
+
+            let nextItem1 = document.querySelector('.item1');
+
+            let nextItem2 = document.querySelector('.item2');
+
+            let nextItem3 = document.querySelector('.item3');
+
+            let nextItem4 = document.querySelector('.item4');
+
+            let nextItem5 = document.querySelector('.item5');
+
+            let page3nextItem1 = document.querySelector('.page3-item1');
+
+            let page3nextItem2 = document.querySelector('.page3-item2');
+
+            let page3nextItem3 = document.querySelector('.page3-item3');
+
+            let page3nextItem4 = document.querySelector('.page3-item4');
+
+            let page3nextItem5 = document.querySelector('.page3-item5');
+
+            let itemInfo = document.querySelector('.itemInfo');
+
+            let itemInfo2 = document.querySelector('.itemInfo2');
+
+            let nameOfProduct = document.querySelector('.itemName');
+
+            let nameOfProduct2 = document.querySelector('.itemName2');
+
+            let arrowDiv = document.querySelector('.arrow-div');
+
+            let produkty = {
+
+                name: '',
+
+                price: '',
+
+            };
+
+
+            produkty.name = localStorage.getItem('key');
+
+            if (localStorage.getItem('key') === 0 || localStorage.getItem('key') === null || localStorage.getItem('key') === undefined) {
+
+                produkty.name = '';
+
+            }
+
+            let cost = 0 || Number(localStorage.getItem('key2'));
+
+            let numberOfProducts = 0 || Number(localStorage.getItem('key3'));
+
+            let button1 = document.querySelector('.article-info-button');
+
+            let button2 = document.querySelector('.article-info-button-2');
+
+
+            let wrapperTitleLetters = ['_', '', '_', '', 'M', 'A', 'X', ' C', 'L', 'O', 'T', 'H', 'E', 'S'];
+
+            let i = -1;
+
+
+
+
+            function loop() {
+
+                i++;
+
+                if (i < 5) {
+
+                    wrapperTitle.innerHTML = wrapperTitleLetters[i];
+
+                }
+
+                if (i > 4) {
+
+                    wrapperTitle.innerHTML = wrapperTitle.innerHTML + wrapperTitleLetters[i];
+
+                }
+
+                if (i >= 13) {
+
+                    clearInterval(intervalLetters);
+
+                }
+
+            };
+
+            let intervalLetters = setInterval(loop, 80);
+
+
+            // Cart Clearing
+
+            cartClear.addEventListener('click', () => {
+
+                localStorage.clear('key');
+                localStorage.clear('key2');
+
+                cost = 0;
+                numberOfProducts = 0;
+                produkty.name = '';
+
+
+            });
+
+
+            // Cart Adding
+
+
+            button1.addEventListener('click', () => {
+
+                button1.innerHTML = 'Added!';
+                button1.style.backgroundColor = 'rgb(255, 174, 0)';
+                button1.style.animation = 'buttonClicked 2s infinite';
+
+
+                setTimeout(() => {
+
+                    button1.innerHTML = 'Add to cart';
+                    button1.style.backgroundColor = 'rgb(139, 0, 86)';
+                    button1.style.animation = 'borderColor 3s infinite';
+
+                }, 2000);
+
+
+                cost = `${Number(itemCost.innerHTML) + Number(cost)}`;
+                numberOfProducts += 1;
+
+                produkty.name = `${produkty.name + '<br>' + nameOfProduct.innerHTML}`;
+
+                console.log(produkty);
+
+
+                // Local Storage
+
+                localStorage.setItem('key2', Number(cost));
+                localStorage.setItem('key', produkty.name);
+                localStorage.setItem('key3', Number(numberOfProducts));
+
+
+            });
+
+
+            // More items div
+
+            more.style.color = 'black';
+            more.style.fontWeight = '700';
+            more.style.fontSize = '18px';
+
+            ul.style.display = 'none';
+            ul.style.color = 'black';
+
+            function openDiv() {
+
+                more.style.height = '400px';
+                more.style.display = 'flex';
+                more.style.flexDirection = 'column';
+                more.style.zIndex = 99;
+
+                ul.style.display = 'flex';
+                ul.style.flexDirection = 'column';
+
+                if (more.style.width !== '300px') {
+
+                    more.style.height = '40px';
+
+                }
+
+
+            }
+
+            function showList() {
+
+                ul.style.display = 'flex';
+                ul.style.flexDirection = 'column';
+
+            }
+
+            more.addEventListener('mouseover', () => {
+
+                more.style.width = '300px';
+                more.style.height = '40px';
+                more.style.transition = '0.4s';
+                arrowDiv.style.display = 'none';
+
+                setTimeout(openDiv, 400);
+
+
+            });
+
+            more.addEventListener('mouseout', () => {
+
+                more.style.width = '70px';
+                more.style.height = '40px';
+                more.style.transition = '0.4s';
+                more.innerHTML = 'More';
+                ul.style.display = 'none';
+
+
+            });
+
+
+            // Cart Adding Page2
+
+
+            button2.addEventListener('click', () => {
+
+                button2.innerHTML = 'Added!';
+                button2.style.backgroundColor = 'rgb(255, 174, 0)';
+                button2.style.animation = 'buttonClicked 2s infinite';
+
+
+                setTimeout(() => {
+
+                    button2.innerHTML = 'Add to cart';
+                    button2.style.backgroundColor = 'rgb(139, 0, 86)';
+                    button2.style.animation = 'borderColor 3s infinite';
+
+                }, 2000);
+
+
+                cost = `${Number(itemCost2.innerHTML) + Number(cost)}`;
+                numberOfProducts += 1;
+
+                produkty.name = `${produkty.name + '<br>' + nameOfProduct2.innerHTML}`;
+
+                console.log(produkty);
+
+
+                // Local Storage
+
+                localStorage.setItem('key2', Number(cost));
+                localStorage.setItem('key', produkty.name);
+                localStorage.setItem('key3', Number(numberOfProducts));
+
+
+            });
+
+            // Cart Style on hover
+
+            cart.addEventListener('mouseover', () => {
+
+                cart.style.width = '300px';
+                cart.style.overflow = 'hidden';
+                cart.innerHTML = `Products: ${numberOfProducts}
+            Cost: $${cost}`;
+                cart.style.transition = '0.3s';
+                cart.style.height = '60px';
+
+            });
+
+            cart.addEventListener('mouseout', () => {
+
+                cart.style.width = '60px';
+                cart.style.height = '60px';
+                cart.innerHTML = '';
+                cart.style.overflowY = 'hidden';
+
+            });
+
+            if (cart.style.width != '60px') {
+
+                cart.addEventListener('click', () => {
+
+                    cart.style.width = '300px';
+                    cart.style.height = '300px';
+                    cart.style.overflow = 'hidden';
+                    cart.innerHTML = `Products: ${numberOfProducts}<br>
+                Cost: $${cost}<br>
+                Products: ${produkty.name}`;
+                    cart.style.transition = '0.3s';
+                    cart.style.overflowY = 'scroll';
+
+                });
+
+            }
+
+            // Hoody
+
+            nextItem1.addEventListener('click', () => {
+
+                itemCost.innerHTML = '55';  // cost
+
+                jsArticleImg.src = "white.gif";
+
+                nameOfProduct.innerHTML = 'White Hoody';
+
+                itemInfo.innerHTML = `Casual hoody for everyday.<br> High quality cotton.`;     // info
+
+
+
+            });
+
+            nextItem2.addEventListener('click', () => {
+
+                itemCost.innerHTML = '70';
+
+                jsArticleImg.src = "gray.gif";
+
+                nameOfProduct.innerHTML = 'Gray Hoody';
+
+                itemInfo.innerHTML = 'Calual gray hoody for a walk.';
+
+
+
+            });
+
+            nextItem3.addEventListener('click', () => {
+
+                itemCost.innerHTML = '50';
+
+                nameOfProduct.innerHTML = 'Camo Hoody';
+
+                jsArticleImg.src = "camo.gif";
+
+                itemInfo.innerHTML = 'Army camo hoody. Perfect for hiking in the autumn.';
+
+
+
+            });
+
+
+            nextItem4.addEventListener('click', () => {
+
+                itemCost.innerHTML = '100';
+
+                jsArticleImg.src = "blue.gif";
+
+                nameOfProduct.innerHTML = 'Blue Hoody';
+
+                itemInfo.innerHTML = 'Blue hoody.<br> Elastic, smooth cotton.';
+
+
+
+            });
+
+
+            nextItem5.addEventListener('click', () => {
+
+                itemCost.innerHTML = '60';
+
+                jsArticleImg.src = "green.gif";
+
+                nameOfProduct.innerHTML = 'Green Hoody';
+
+                itemInfo.innerHTML = 'Green hoody. 100% cotton';
+
+
+
+            });
+
+
+            // Shoes
+
+            page3nextItem1.addEventListener('click', () => {
+
+                itemCost2.innerHTML = '60';
+
+                jsArticleImg2.src = "shoes1.gif";
+
+                nameOfProduct2.innerHTML = 'White Nike';
+
+                itemInfo2.innerHTML = 'White nike.';
+
+
+
+            });
+
+            page3nextItem2.addEventListener('click', () => {
+
+                itemCost2.innerHTML = '80';
+
+                jsArticleImg2.src = "shoes2.gif";
+
+                nameOfProduct2.innerHTML = 'White Nike 2';
+
+                itemInfo2.innerHTML = 'White nike 2.';
+
+
+
+            });
+
+            page3nextItem3.addEventListener('click', () => {
+
+                itemCost2.innerHTML = '120';
+
+                jsArticleImg2.src = "shoes3.gif";
+
+                nameOfProduct2.innerHTML = 'White Autry';
+
+                itemInfo2.innerHTML = 'White Autry.';
+
+
+
+            });
+
+            page3nextItem4.addEventListener('click', () => {
+
+                itemCost2.innerHTML = '100';
+
+                jsArticleImg2.src = "shoes4.gif";
+
+                nameOfProduct2.innerHTML = 'White adidas';
+
+                itemInfo2.innerHTML = 'White adidas.';
+
+
+
+            });
+
+            page3nextItem5.addEventListener('click', () => {
+
+                itemCost2.innerHTML = '50';
+
+                jsArticleImg2.src = "shoes5.gif";
+
+                nameOfProduct2.innerHTML = 'Red converse.';
+
+                itemInfo2.innerHTML = 'Red converse.';
+
+            });
+
+
+
+
+        </script>
+
+</body>
+
+</html>
